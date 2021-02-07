@@ -21,7 +21,7 @@
       <li class="nav-item">
         <a class="nav-link" href="historialreserva.php">Reportes</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" style="cursor: pointer;">
         <a class="nav-link dropdown-toggle" id="menuDesplegable" data-bs-toggle="dropdown" aria-expanded="false">
           Opciones
         </a>

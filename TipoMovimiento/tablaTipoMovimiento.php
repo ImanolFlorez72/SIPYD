@@ -3,7 +3,8 @@ require_once("../Controlador/conexion.php");
 ?>
 <div class="row">
   <div class="col-sm-12">
-    <table class="table table-dark table-hover table-condensed table-bordered">
+    <div class="table-responsive"> 
+    <table id="example" class="table table-bordered table-dark" style="width:100%">
 
       <thead>
         <tr>
@@ -44,3 +45,25 @@ require_once("../Controlador/conexion.php");
     </table>
   </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function() {    
+    $('#example').DataTable({
+    //para cambiar el lenguaje a español
+        "language": {
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sSearch": "Buscar:",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast":"Último",
+                    "sNext":"Siguiente",
+                    "sPrevious": "Anterior"
+                 },
+                 "sProcessing":"Procesando...",
+            }
+    });     
+});
+</script>
