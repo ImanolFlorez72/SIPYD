@@ -15,8 +15,8 @@
     $contrasena=$_POST['contrasena'];
     try {
         
-        $cue->Insertar_Cuenta($documento,$usuario,$contrasena,$cuenta);
-        $func->Insertar_Funcionario($documento,$nombre,$apellido,$documento,$mail,$oficina,$documento);
+        $cue->Insertar_Cuenta($cood,$usuario,$contrasena,$cuenta);
+        $func->Insertar_Funcionario($cood,$nombre,$apellido,$documento,$mail,$oficina,$cood);
         
     } catch (\Exception $e) {
         $e ->getMessage();
