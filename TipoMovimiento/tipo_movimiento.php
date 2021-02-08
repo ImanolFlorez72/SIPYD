@@ -8,7 +8,7 @@ $tipomov = new TipoMovimiento();
 ?>
 
 <div class="container">
-  <div class="alert alert-dismissible alert-success" style="margin-top:20px" ;>
+  <div class="alert alert-dismissible alert-success" style="margin-top:20px;">
     <center><strong>
         <h1> Tipo de Movimiento</h1>
       </strong> </center>
@@ -18,12 +18,8 @@ $tipomov = new TipoMovimiento();
     <div class="container">
       <div class="form-group">
         <div class="row">
+          <input type="number" class="form-control" id="CodigoTM" placeholder="Código Movimiento" required hidden>
           <div class="col">
-            <strong><label>Código Movimiento</label></strong>
-            <input type="number" class="form-control" id="CodigoTM" placeholder="Código Movimiento" required>
-          </div>
-          <div class="col">
-
             <strong><label>Descripción</label></strong>
             <input type="text" class="form-control" id="DescripcionTM" placeholder="Descripción" required>
           </div>

@@ -1,6 +1,5 @@
 function agregarTM(nombre,codigo){
-    let cadena = "nombre=" + nombre +
-                 "&codigo=" + codigo;
+    let cadena = "nombre=" + nombre + "&codigo=" + codigo;
                 
     
     $.ajax({
@@ -8,16 +7,13 @@ function agregarTM(nombre,codigo){
         url: 'agregarTM.php',
         data: cadena,
         success: function() {
-            
-                alertify.success("Agregado con exito");
-                $('#tablaTipoMovimiento').load('tablaTipoMovimiento.php');
-           
-            
+            alertify.success("Agregado con exito");
+            $('#tablaTipoMovimiento').load('tablaTipoMovimiento.php');
         }
     });
 }
 
-function agregaform(datos){
+function agregaFormTipoMovi(datos){
     let d = datos.split('||');
     
     $('#idTM').val(d[0]);
@@ -32,8 +28,7 @@ function actualizaTM() {
     
    
    
-    let cadena = "nombre=" + nombre
-                    + "&codigo=" + codigo;
+    let cadena = "nombre=" + nombre + "&codigo=" + codigo;
 
     $.ajax({
         type: "POST",
