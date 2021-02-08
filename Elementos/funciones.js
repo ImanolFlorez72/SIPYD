@@ -24,16 +24,16 @@ function agregarE(identificacion, descripcion, serial, modelo, estado, obeservac
     });
 }
 
-function agregaform(datos){
+function agregarFormElem(datos){
     let d = datos.split('||');
     
     $('#identificacion_elementoE').val(d[0]);
     $('#descripcion_elementoE').val(d[1]);
     $('#serial_elementoE').val(d[2]);
     $('#modelo_elementoE').val(d[3]);
-    $('#estado_elementoE').val(d[4]);
+    $('#estado_elementoE > option[value="0"]').text(d[4]);
     $('#observacion_elementoE').val(d[5]);
-    $('#tipo_elementoE').val(d[6]);
+    $('#tipo_elementoE > option[value="0"]').text(d[6]);
       
 }
 
@@ -45,7 +45,6 @@ function actualizaE(estadoE,TipoE) {
     estado = estadoE;
     obeservacion = $('#observacion_elementoE').val();
     tipoElemento = TipoE;
-    console.log(estadoE, TipoE);
    
     let cadena = "identificacion=" + identificacion + 
                 "&descripcion=" + descripcion + 
@@ -54,7 +53,8 @@ function actualizaE(estadoE,TipoE) {
                 "&estado=" + estado +
                 "&observacion=" + obeservacion +
                 "&tipoElemento=" + tipoElemento;
-
+                alert(cadena);
+    
     $.ajax({
         type: "POST",
         url: "actualiza.php",
