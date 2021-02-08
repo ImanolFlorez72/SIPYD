@@ -9,35 +9,34 @@ function agregarF(identificacion,nombre,apellido,documento,mail,oficiona,cuenta,
                 '&cuenta=' + cuenta +
                 '&usuario=' + usuario +
                 '&contrasena=' + contrasena;
-                alert(cadena);
+                
 
     $.ajax({
         type: 'POST',
         url: 'agregarF.php',
         data: cadena,
         success: function(r) {
-            
             alertify.success("Agregado con exito");
             $('#tablaFuncionario').load('tablaFunc.php');
-                
-            
         }
 
     });
     
 }
 
-function agregarForm(datos) {
+function agregarFormFunc(datos) {
     let d = datos.split('||');
-    
+
     $('#idF').val(d[0]);
     $('#nombreF').val(d[1]);
     $('#apellidoF').val(d[2]);
     $('#DocumentoF').val(d[3]);
     $('#mailF').val(d[4]);
-    $('#oficinaF').val(d[5]);
-    $('#cuentaF').val(d[6]);
+    $('#oficionaF > option[value="0"]').text(d[5]);
+    $('#cuentaF > option[value="0"]').text(d[6]);
+    
 }
+
 
 function actualizaF(oficionaF, cuentaF) {
     identificacion = $('#idF').val();
@@ -55,16 +54,15 @@ function actualizaF(oficionaF, cuentaF) {
                 '&mail=' + mail +
                 '&oficina=' + oficina +
                 '&cuenta=' + identificacion;
+                alert(cadena);
 
     $.ajax({
         type: 'POST',
         url: 'actualizaF.php',
         data: cadena,
         success: function(r) {
-           
-                alertify.success("Actualizado con exito");
-                $('#tablaFuncionario').load('tablaFunc.php');
-           
+            alertify.success("Actualizado con exito");
+            $('#tablaFuncionario').load('tablaFunc.php');
         }
     });
  
@@ -83,10 +81,6 @@ function eliminarF(id) {
         success: function() {
             alertify.success("Eliminado con exito");
             $('#tablaFuncionario').load('tablaFunc.php');
-    
-                
-            
-            
         }
     })
 }
