@@ -5,7 +5,7 @@ include('../Componentes/menuA.php');
 
 
 <div class="container">
-  <div class="alert alert-dismissible alert-success" style="margin-top:20px" ;>
+  <div class="alert alert-dismissible alert-success" style="margin-top:20px;">
     <center><strong>
         <h1> Tipo de Elemento</h1>
       </strong> </center>
@@ -26,23 +26,20 @@ include('../Componentes/menuA.php');
   </form>
 </div>
 <br>
-<div class="container"></div>
 <div id="tablaTe"></div>
-<?php 
+<?php
 include("edit_delete.php");
 ?>
 <script type="text/javascript">
   $('#tablaTe').load('tablaTe.php');
 
-  $('#guardarTe').click(function(){
+  $('#guardarTe').click(function() {
     idTe = $('#idTe').val();
     descripcionTe = $('#descripcionTe').val();
-    agregarTe(idTe,descripcionTe);
+    agregarTe(idTe, descripcionTe);
 
   });
   $('#actualizarTE').click(function() {
-            actualizaTE();
-        });
-
+    actualizaTE();
+  });
 </script>
-
