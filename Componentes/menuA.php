@@ -1,4 +1,12 @@
 <!-- Menu principal -->
+  $usuario = $_SESSION['username'];
+
+  if (!isset($usuario)) {
+    header("location: Login.php");
+  } else {
+  
+  
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand"><img src="../Img/Alcaldia.png" style="width:200px; height:85px;"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,4 +42,7 @@
     </ul>
   </div>
   <a href="../Vistas/Login.php"><button type="button" class="btn btn-danger" style="margin-left: 10px"><strong>Cerrar Sesion </strong></button></a>
+   <?php
+  }
+  ?>
 </nav>
