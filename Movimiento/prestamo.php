@@ -1,10 +1,15 @@
 <?php
+session_start();
 include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Controlador/conexion.php");
 include("../Modelo/Tipo_Movimiento.php");
 $tipoM = new TipoMovimiento();
 $con = new conexion();
+
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
 
 <div class="container">
@@ -95,6 +100,7 @@ $con = new conexion();
               foreach ($tipoM as $cod => $valor) {
                 echo '<option value="' . $cod . '">' . $valor . '</option>';
               }
+}
               ?>
             </select>
           </div>
