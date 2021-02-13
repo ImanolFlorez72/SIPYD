@@ -1,11 +1,14 @@
 <?php
-
+session_start();
 include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Modelo/Oficina.php");
-$oficina = new Oficina();
-?>
+$oficina=new Oficina();
 
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
+?>
 
 <div class="container">
   <div class="alert alert-dismissible alert-success" style="margin-top:20px;">
@@ -45,6 +48,7 @@ $oficina = new Oficina();
   </div>
 </div>
 <?php
+}
 include_once('edit_delete.php');
 ?>
 
