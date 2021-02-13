@@ -1,4 +1,7 @@
 <?php
+session_start();
+$usuario = $_SESSION['username'];
+
 include("../Componentes/header.php");
 include('../Componentes/menuA.php');
 require_once("../Controlador/Conexion.php");
@@ -6,6 +9,11 @@ include('../Modelo/Tipo_Cuenta.php');
 include('../Modelo/Oficina.php');
 $oficina = new Oficina();
 $cuenta = new TipoCuenta();
+
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
+
 ?>
 
 <div class="container">
@@ -88,6 +96,9 @@ $cuenta = new TipoCuenta();
 <div class="container">
     <div id="tablaFuncionario"></div>
 </div><!-- Contenedor tabla -->
+<?php
+}
+?>
 
 <?php
 include_once('edit_delete.php');
