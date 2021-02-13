@@ -1,9 +1,13 @@
 <?php
-
+session_start();
 include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Modelo/Oficina.php");
 $oficina=new Oficina();
+
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
 
 
@@ -46,6 +50,7 @@ $oficina=new Oficina();
    </div>
 </div>
 <?php
+}
 include_once('edit_delete.php');
 ?>
 
