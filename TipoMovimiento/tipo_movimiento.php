@@ -1,10 +1,13 @@
 <?php
-
+session_start();
 include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Modelo/Tipo_Movimiento.php");
 $tipomov = new TipoMovimiento();
 
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
 
 <div class="container">
@@ -40,6 +43,7 @@ $tipomov = new TipoMovimiento();
 </div>
 
 <?php
+}
 include("edit_delete.php");
 ?>
 <script type="text/javascript">
