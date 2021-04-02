@@ -18,6 +18,7 @@
     <script src="../Js/jquery-3.3.1.min.js"></script>
     <script src="../Js/bootstrap/popper/popper.min.js"></script>
     <script src="../Js/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
       
     <!-- datatables JS -->
     <script type="text/javascript" src="../datatables/datatables.min.js"></script>  
@@ -35,6 +36,9 @@
         }
     </style>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+    <!-- LIBRERIAS DE ALERTAS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="../Js/alertifyjs/css/alertify.css">
     <link rel="stylesheet" href="../Js/alertifyjs/css/themes/default.css">
     <!-- <link rel="stylesheet" type=text/css" href="../Css/bootstrap.min.css"> -->

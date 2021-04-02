@@ -100,7 +100,6 @@ if (!isset($usuario)) {
               foreach ($tipoM as $cod => $valor) {
                 echo '<option value="' . $cod . '">' . $valor . '</option>';
               }
-}
               ?>
             </select>
           </div>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../Modelo/Cuenta.php");
 $cod = "";
 $usuario = "";
@@ -11,21 +12,26 @@ if (isset($_REQUEST['Ingresar'])) {
 		$cuenta = new Cuenta();
 		$result = $cuenta->Login($usuario, $contrasena);
 		if ($result[0]) {
+			// CONSULTAR ESTAS CONDICIONALES DE QUE EL LOGUEO FUE EXITOSO:
 			if ($result[1] == 1) {
 				echo "<script type='text/javascript'>
-                            window.location.href='Vistas/Modificar.php';
-                              </script>";
+				window.location.href='Vistas/Modificar.php';
+				</script>";
 			} elseif ($result[1] == 2) {
+				$_SESSION['username'] = $usuario;
 				echo "<script type='text/javascript'>
-                            window.location.href='indexA.php';
-                              </script>";
+				window.location.href='indexA.php';
+				</script>";
 			} else {
 				echo "<script type='text/javascript'>
-                            window.location.href='indexF.php';
-                              </script>";
-			}
+				window.location.href='indexF.php';
+				</script>";
+			} 
+			// FIN CONDICIONAL
 		} else {
-			echo "<script languaje='javascript'>alert('Usuario o Contraseña Incorrectas') </script>";
+			echo "<script languaje='javascript'>
+			alert('Usuario o Contraseña Incorrectas') 
+			</script>";
 		}
 	}
 }

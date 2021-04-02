@@ -96,6 +96,9 @@ if (!isset($usuario)) {
 <div class="container">
     <div id="tablaFuncionario"></div>
 </div><!-- Contenedor tabla -->
+<?php
+}
+?>
 
 <?php
 }

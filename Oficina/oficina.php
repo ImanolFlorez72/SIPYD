@@ -4,7 +4,6 @@ include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Modelo/Oficina.php");
 $oficina=new Oficina();
-
 if (!isset($usuario)) {
     header("location: ../Vistas/Login.php");
 }else{

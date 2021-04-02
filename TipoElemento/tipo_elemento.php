@@ -32,7 +32,8 @@ if (!isset($usuario)) {
 </div>
 <br>
 <div id="tablaTe"></div>
-<?php
+
+<?php 
 }
 include("edit_delete.php");
 ?>
