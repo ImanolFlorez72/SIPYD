@@ -49,10 +49,10 @@ require_once("../Controlador/conexion.php");
                 <td><?php echo $ver[5] ?></td>
                 <td><?php echo $ver[6] ?></td>
                 <td>
-                    <button class="btn btn-primary" id="Editar" data-bs-toggle="modal" data-bs-target="#modalEditar" onclick="agregaform('<?php echo $datos ?>')">Editar</button>
+                    <button class="btn btn-primary" id="Editar" data-bs-toggle="modal" data-bs-target="#modalEditar" onclick="agregarFormElem('<?php echo $datos ?>');"><i class="far fa-edit"></i></button>
                 </td>
                 <td>
-                    <button class="btn btn-danger" onclick="preguntarE('<?php echo $ver[0] ?>')"> Eliminar </button>
+                    <button class="btn btn-danger" onclick="preguntarE('<?php echo $ver[0] ?>')"><i class="far fa-trash-alt"></i></button>
                 </td>
             </tr>
             <?php }?>

@@ -9,6 +9,14 @@
   
 ?>
 <!-- Menu principal -->
+  $usuario = $_SESSION['username'];
+
+  if (!isset($usuario)) {
+    header("location: Login.php");
+  } else {
+  
+  
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="../Vistas/indexA.php">
     <img src="../Img/Alcaldia.png" style="width:200px; height:85px;" title="Inicio | Alcaldia de Barranquilla">
@@ -48,7 +56,6 @@
       </li>
     </ul>
   </div>
-  
   <?php
   echo "
   <span class='navbar-text' style='color: #A0A0A0; font-size: 1rem; margin: 0 0 0 0; cursor: help;' title='Iniciaste sesión como $usuario'>

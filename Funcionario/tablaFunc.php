@@ -9,10 +9,10 @@
         <table id="example" class="table table-bordered table-dark" style="width:100%">
             <thead>
             <tr>
-                <td>Identificacion</td>
+                <td>Codigo</td>
                 <td>Nombre</td>
                 <td>Apellido</td>
-                <td>Documento</td>
+                <td>Documento (C.C)</td>
                 <td>Correo</Em></td>
                 <td>Oficiona</td>
                 <td>Cuenta</td>
@@ -45,8 +45,8 @@
                 <td><?php echo $ver[4]; ?></td>
                 <td><?php echo $ver[5]; ?></td>
                 <td><?php echo $ver[6]; ?></td>
-                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarF" onclick="agregarForm('<?php echo $datos ?>')">Editar</button></td>
-                <td><button class="btn btn-danger" onclick="preguntarF('<?php echo $ver[0] ?>')"> Eliminar </button> </td>
+                <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarF" onclick="agregarFormFunc('<?php echo $datos ?>')"><i class="far fa-edit"></i></button></td>
+                <td><button class="btn btn-danger" onclick="preguntarF('<?php echo $ver[0] ?>')"><i class="far fa-trash-alt"></i></button> </td>
             </tr>
             <?php }?>
         </table>

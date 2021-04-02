@@ -4,16 +4,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Editar Elemento</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times"></i></button>
       </div>
       <div class="modal-body">
         <form action=" " method="POST">
           <div class="container">
             <div class="form-group">
-              <div class="row">
-                <input type="number" id="identificacion_elementoE" class="form-control" hidden name="rc_identificacion" placeholder="Indentifiacion">
-              </div>
-              <br>
+              <input type="number" id="identificacion_elementoE" class="form-control" hidden name="rc_identificacion" placeholder="Indentifiacion">
               <div class="row">
                 <strong><label>Descripcion</label></strong>
                 <input type="text" id="descripcion_elementoE" class="form-control" name="rc_nombre" placeholder="Descripcio del Elemento">
@@ -32,7 +29,7 @@
               <div class="row">
                 <strong><label>Estado Elemento</label></strong>
                 <select required class="form-control" id="estado_elementoE" name="estado_elemento">
-                  <option value="0">Seleccionar</option>
+                  <option value="0" hidden> </option>
                   <?php
                   $est_elemento = $estadolementos->Consultar_EstadoElemento();
                   foreach ($est_elemento as $cod => $valor) {
@@ -49,8 +46,8 @@
               <br>
               <div class="row">
                 <strong> <label>Tipo de Elemento</label></strong>
-                <select required="" class="form-control" id="tipo_elementoE" name="tipo_elemento">
-                  <option value="0">Seleccionar</option>
+                <select required class="form-control" id="tipo_elementoE" name="tipo_elemento">
+                  <option value="0" hidden> </option>
                   <?php
                   $Tipoelemento = $tipoelemento->Consultar_TipoElemento();
                   foreach ($Tipoelemento as $cod => $valor) {

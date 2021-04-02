@@ -12,8 +12,8 @@
     $codigotipo = $_POST['tipoElemento'];
 
     try {
-        $sql="UPDATE elementos SET e_descripcion='$descripcion',e_serial='$serial', e_modelo='$modelo', ee_cood=$codigoestado, e_observacion='$observacion', te_cood=$codigotipo 
-        WHERE e_cod=$cod";
+        $sql="UPDATE elementos SET e_descripcion='$descripcion', e_serial='$serial', e_modelo='$modelo', ee_cood=$codigoestado, e_observacion='$observacion', te_cood=$codigotipo 
+        WHERE e_cod = $cod";
         $result = mysqli_query($conx,$sql);
         if ($result == true) {
             echo $result;

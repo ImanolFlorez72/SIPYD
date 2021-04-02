@@ -1,49 +1,38 @@
 function agregarO(nombre,codigo){
-    let cadena = "nombre=" + nombre +
-                 "&codigo=" + codigo;
+    let cadena = "nombre=" + nombre + "&codigo=" + codigo;
                 
-    
     $.ajax({
         type: 'POST',
         url: 'agregarO.php',
         data: cadena,
         success: function() {
             
-                alertify.success("Agregado con exito");
-                $('#tablaOficina').load('tablaOficina.php');
-           
+            alertify.success("Agregado con exito");
+            $('#tablaOficina').load('tablaOficina.php'); 
             
         }
     });
 }
 
-function agregaform(datos){
+function agregaFormOfi(datos){
     let d = datos.split('||');
-    
     $('#idO').val(d[0]);
     $('#nombreO').val(d[1]);
-    
-      
 }
 
 function actualizaO() {
     nombre = $('#nombreO').val();
     codigo=$('#idO').val();
     
-   
-   
-    let cadena = "nombre=" + nombre
-                    + "&codigo=" + codigo;
+    let cadena = "nombre=" + nombre + "&codigo=" + codigo;
 
     $.ajax({
         type: "POST",
         url: "actualizaO.php",
         data: cadena,
         success: function (r) {
-           
-                $('#tablaOficina').load('tablaOficina.php');
-                alertify.success("Actualizado con exito");
-                   
+            $('#tablaOficina').load('tablaOficina.php');
+            alertify.success("Actualizado con exito");      
         }
     });
 }
@@ -61,11 +50,8 @@ function eliminarO(id) {
         url: "eliminarO.php",
         data: cadena,
         success: function() {
-           
             $('#tablaOficina').load('tablaOficina.php');
-    
-                
-            
-            
+            alertify.success("Proceso con exito");
         }
     })
+}

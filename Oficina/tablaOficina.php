@@ -22,16 +22,15 @@ require_once("../Controlador/conexion.php");
                     $datos = $ver[0]."||". 
                     $ver[1];
                     ?>
-
-
+                    
                     <tr>
                         <td><?php echo $ver[0]; ?></td>
                         <td><?php echo $ver[1]; ?></td>
                         <td>
-                            <button class="btn btn-primary" id="Editar" data-bs-toggle="modal" data-bs-target="#modalEditarO" onclick="agregaform('<?php echo $datos ?>')">Editar</button>
+                            <button class="btn btn-primary" id="Editar" data-bs-toggle="modal" data-bs-target="#modalEditarO" onclick="agregaFormOfi('<?php echo $datos ?>')"><i class="far fa-edit"></i></button>
                         </td>
                         <td>
-                            <button class="btn btn-danger" onclick="preguntarO('<?php echo $ver[0] ?>')"> Eliminar </button>
+                            <button class="btn btn-danger" onclick="preguntarO('<?php echo $ver[0] ?>')"><i class="far fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 <?php }?>

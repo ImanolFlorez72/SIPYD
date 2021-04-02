@@ -101,6 +101,7 @@ if (!isset($usuario)) {
 ?>
 
 <?php
+}
 include_once('edit_delete.php');
 ?>
 
