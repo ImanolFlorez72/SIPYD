@@ -27,7 +27,7 @@
         public function Insertar_Funcionario($f_cood,$f_nombre,$f_apellido,$f_documento,$f_correo,$o_cood,$c_cood){
             $conexion=new Conexion();
             $conx = $conexion->Conectar();
-            $sql = "INSERT INTO funcionario values($f_cood,'$f_nombre','$f_apellido',$f_cood,'$f_correo',$o_cood,$c_cood)";
+            $sql = "INSERT INTO funcionario values($f_cood,'$f_nombre','$f_apellido',$f_documento,'$f_correo',$o_cood,$c_cood)";
             mysqli_query($conx, $sql) or die ("Insercion Fallida");
 
         }

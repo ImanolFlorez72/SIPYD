@@ -35,9 +35,8 @@ $tipomov = new TipoMovimiento();
   <div id="tablaTipoMovimiento"></div>
 </div>
 
-<?php
-include("edit_delete.php");
-?>
+<?php include("edit_delete.php"); ?>
+<?php include('../Componentes/footer.php');?>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#tablaTipoMovimiento').load('tablaTipoMovimiento.php');

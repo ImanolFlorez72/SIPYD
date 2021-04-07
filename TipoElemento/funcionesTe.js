@@ -1,3 +1,9 @@
+function cleanTe() {
+    $('#idTe').val('');
+    $('#descripcionTe').val('');
+    
+}
+
 function agregarTe(idTe,descripcionTe) {
     let cadena = 'id=' + idTe + '&descripcion=' + descripcionTe;
 

@@ -20,10 +20,10 @@ $oficina = new Oficina();
     <div class="container">
       <div class="form-group">
         <div class="row">
-          <input type="number" class="form-control" hidden id="codigooficina" placeholder="Codigo" required="">
+          <input type="number" class="form-control" hidden id="codigooficina" placeholder="Codigo">
           <div class="col">
             <strong><label>Nombre de Oficina</label></strong>
-            <input type="text" class="form-control" id="nombreoficina" placeholder="Nombre " required="">
+            <input type="text" class="form-control" id="nombreoficina" placeholder="Nombre " required=''>
           </div>
         </div>
         <br>
@@ -37,16 +37,13 @@ $oficina = new Oficina();
 </div>
 </div>
 
-
-<br>
 <div class="container">
-  <div id="tablaOficina">
-
-  </div>
+  <div id="tablaOficina"></div>
 </div>
-<?php
-include_once('edit_delete.php');
-?>
+
+<?php include('edit_delete.php'); ?>
+<?php include('../Componentes/footer.php');?>
+
 
 
 <!-- REFRESCAR LA TABLA -->
@@ -63,8 +60,10 @@ include_once('edit_delete.php');
     $('#guardarO').click(function() {
       nombre = $('#nombreoficina').val();
       codigo = $('#codigooficina').val();
-
       agregarO(nombre, codigo);
+
+      cleanOfi();
+
     });
 
 

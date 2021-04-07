@@ -1,3 +1,12 @@
+function CleanFun(){
+    $('#elemto_cod').val('');
+    $('#elemento_descripcion').val('');
+    $('#elemento_serial').val('');
+    $('#elemento_modelo').val('');
+    $('#estado_elemento').val('0');
+    $('#elemento_observacion').val('');
+    $('#tipo_elemento').val('0');  
+}
 
 function agregarE(identificacion, descripcion, serial, modelo, estado, obeservacion, tipoElemento){
     let cadena = "identificacion=" + identificacion + 

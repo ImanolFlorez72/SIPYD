@@ -77,9 +77,8 @@ $tipoelemento = new TipoElemento();
 <div class="container">
     <div id="tabla"></div>
 </div>
-<?php
-include_once('edit_delete_register.php');
-?>
+<?php include_once('edit_delete_register.php'); ?>
+<?php include('../Componentes/footer.php');?>
 
 <script type="text/javascript">
     $(document).ready(function() {
@@ -98,6 +97,7 @@ include_once('edit_delete_register.php');
             obeservacion = $('#elemento_observacion').val();
             tipoElemento = $('#tipo_elemento').val();
             agregarE(identificacion, descripcion, serial, modelo, estado, obeservacion, tipoElemento);
+            CleanFun();        
         });
 
 

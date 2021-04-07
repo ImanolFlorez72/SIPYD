@@ -1,3 +1,7 @@
+:root{
+    --color1: #929191;
+}
+
 .btn_save{
     width: 5.2rem;
     margin: 1rem 0;
@@ -6,3 +10,172 @@
 .row{
     margin-top: 1rem;
 }
+
+/* PDF ESTILOS GENERALES*/
+.encabezado_arriba{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.encabezado_abajo{
+    width: 1000px;
+}
+
+.flex{
+    display: flex;
+}
+
+.separacion{
+    padding-left: 5px;
+}
+
+.borde{
+    border: 1px solid;
+}
+
+.contenedor{
+    width: 902px
+}
+
+/* ESTILOS ENCABEZADOS PRIMER CUEPO*/
+.encabezado_titulo{
+    background-color: var(--color1);
+}
+.info_reporte{
+    background-color: var(--color1);
+}
+
+.acta{
+    text-align: center;
+    width: 200px;
+}
+
+.tipoMovi{
+    text-align: center;
+    width: 700px;
+}
+
+.sub_info{
+    text-align: center;
+    width: 902px;
+}
+
+.fecha_entrega{
+    width: 400px;
+}
+
+.fecha_recibido{
+    width: 500px;
+}
+
+/* ESTILOS SEGUNDO CUERPO */
+
+.info_funcionario{
+    max-width: 902px;
+}
+
+.func{
+  width: 200px;
+}
+
+.func_name{
+    text-align: center;
+    min-width: 130px;
+}
+
+.func_num{
+    min-width: 130px;
+    text-align: center;
+}
+
+.func_entrega{
+    width: 170px;
+}
+
+.func_recibe{
+    width: 195px;
+}
+
+.func_recibe_nombre{
+    width: 434px;
+}
+
+.document{
+    width: 130px;
+    text-align: center;
+}
+
+.oficina{
+    width: 300px;
+}
+
+.campo{
+    width: 470px;
+    text-align: center;
+}
+
+.ubicacion{
+    width: 130px;
+    text-align: center;
+}
+
+.Ingreso{
+    width: 288px;
+}
+
+.jefaArea{
+    width: 533px;
+}
+
+/* ESTILOS TERCER CUERPO */
+
+.divisiones{
+    width: 902px;
+}
+
+.num{
+    width: 50px;
+}
+
+.modelo{
+    width: 150px;
+    text-align: center;
+}
+
+.limit{
+    width: 300px;
+    text-align: center;
+}
+
+.marcado{
+    height: 45px;
+    width: 902px;
+    text-align: center;
+}
+
+.parrafo{
+    width: 800px;
+}
+
+.marcacion{
+    width: 50px;
+}
+/* Fin Estilos PDF */
+
+
+/* Ocultar el reporte */
+.reporte-hidden{
+    display: none;
+}
+
+/* FOOTER */
+footer{
+    margin-top: 5rem;
+
+}
+p.copy {
+    font-size: 1rem;
+    text-align: center;
+}
+
