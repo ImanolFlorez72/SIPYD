@@ -99,10 +99,6 @@ if (!isset($usuario)) {
 </div><!-- Contenedor tabla -->
 <?php
 }
-?>
-
-<?php
-}
 include_once('edit_delete.php');
 ?>
 
