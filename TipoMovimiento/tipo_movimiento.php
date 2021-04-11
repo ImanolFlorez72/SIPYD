@@ -1,10 +1,13 @@
 <?php
-
+session_start();
 include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Modelo/Tipo_Movimiento.php");
 $tipomov = new TipoMovimiento();
 
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
 
 <div class="container">
@@ -35,8 +38,12 @@ $tipomov = new TipoMovimiento();
   <div id="tablaTipoMovimiento"></div>
 </div>
 
-<?php include("edit_delete.php"); ?>
+
+<?php 
+     }
+include("edit_delete.php"); ?>
 <?php include('../Componentes/footer.php');?>
+
 <script type="text/javascript">
   $(document).ready(function() {
     $('#tablaTipoMovimiento').load('tablaTipoMovimiento.php');

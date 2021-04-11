@@ -1,11 +1,13 @@
 <?php
-
+session_start();
 include("../Componentes/header.php");
 include("../Componentes/menuA.php");
 include("../Modelo/Oficina.php");
-$oficina = new Oficina();
+$oficina=new Oficina();
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
-
 
 <div class="container">
   <div class="alert alert-dismissible alert-success" style="margin-top:20px;">
@@ -20,10 +22,10 @@ $oficina = new Oficina();
     <div class="container">
       <div class="form-group">
         <div class="row">
-          <input type="number" class="form-control" hidden id="codigooficina" placeholder="Codigo">
+          <input type="number" class="form-control" hidden id="codigooficina" placeholder="Codigo" required="">
           <div class="col">
             <strong><label>Nombre de Oficina</label></strong>
-            <input type="text" class="form-control" id="nombreoficina" placeholder="Nombre " required=''>
+            <input type="text" class="form-control" id="nombreoficina" placeholder="Nombre " required="">
           </div>
         </div>
         <br>
@@ -37,13 +39,17 @@ $oficina = new Oficina();
 </div>
 </div>
 
+
+<br>
 <div class="container">
-  <div id="tablaOficina"></div>
+  <div id="tablaOficina">
+
+  </div>
 </div>
-
-<?php include('edit_delete.php'); ?>
-<?php include('../Componentes/footer.php');?>
-
+<?php
+}
+include_once('edit_delete.php');
+?>
 
 
 <!-- REFRESCAR LA TABLA -->
@@ -60,10 +66,8 @@ $oficina = new Oficina();
     $('#guardarO').click(function() {
       nombre = $('#nombreoficina').val();
       codigo = $('#codigooficina').val();
+
       agregarO(nombre, codigo);
-
-      cleanOfi();
-
     });
 
 

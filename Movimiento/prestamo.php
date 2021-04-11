@@ -1,18 +1,21 @@
 <?php
-  include("../Componentes/header.php");
-  include("../Componentes/menuA.php");
-  require_once("../Controlador/conexion.php");
-  require_once("../Modelo/Tipo_Movimiento.php");
-  $tipoM = new TipoMovimiento();
-  $con = new conexion();
+session_start();
+include("../Componentes/header.php");
+include("../Componentes/menuA.php");
+include("../Controlador/conexion.php");
+include("../Modelo/Tipo_Movimiento.php");
+$tipoM = new TipoMovimiento();
+$con = new conexion();
+
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
 
 <div class="container">
-  <div class="alert alert-dismissible alert-success" style="margin-top:20px;" >
+  <div class="alert alert-dismissible alert-success" style="margin-top:20px";>
     <center>
-      <strong>
-        <h1>Realizar Préstamo</h1>
-      </strong>
+      <strong><h1>Realizar Préstamo</h1></strong>
     </center>
   </div>
   <form action=" " method="POST">
@@ -21,7 +24,7 @@
         <div class="row">
           <div class="col">
             <strong><label>Código Préstamo</label></strong>
-            <input type="number" class="form-control" hidden id="prestamo_id">
+            <input type="number" class="form-control" hidden id="prestamo_id" >
           </div>
           <div class="col">
             <strong> <label>Estado</label></strong>
@@ -49,6 +52,7 @@
               $sql = "SELECT f_cood, f_documento,f_nombre,f_apellido FROM funcionario";
               $result = mysqli_query($conx, $sql);
               while ($ver = mysqli_fetch_array($result)) {
+                // $datos = $ver[0] . "||" . $ver[1] . "||" . $ver[2];
                 echo '<option value="' . $ver[0] . '">' . $ver[2] . " " . $ver[3] . "(" . $ver[1] . ")" . '</option>';
               }
               ?>
@@ -63,6 +67,7 @@
               $sql = "SELECT f_cood, f_documento,f_nombre,f_apellido FROM funcionario";
               $result = mysqli_query($conx, $sql);
               while ($ver = mysqli_fetch_array($result)) {
+                // $datos = $ver[0] . "||" . $ver[1] . "||" . $ver[2];
                 echo '<option value="' . $ver[0] . '">' . $ver[2] . " " . $ver[3] . "(" . $ver[1] . ")" . '</option>';
               }
               ?>
@@ -79,14 +84,16 @@
               $sql = "SELECT f_cood, f_documento,f_nombre,f_apellido FROM funcionario";
               $result = mysqli_query($conx, $sql);
               while ($ver = mysqli_fetch_array($result)) {
+                // $datos = $ver[0] . "||" . $ver[1] . "||" . $ver[2];
                 echo '<option value="' . $ver[0] . '">' . $ver[2] . " " . $ver[3] . "(" . $ver[1] . ")" . '</option>';
               }
               ?>
+
             </select>
           </div>
           <div class="col">
             <strong> <label>Tipo de Movimiento</label></strong>
-            <select class="form-control form-control" id="prestamo_Tm">
+            <select class="form-control form-control" id="prestamo_Tm" required>
               <option value="0"> Seleccionar </option>
               <?php
               $tipoM = $tipoM->Consultar_TipoMovimiento();
@@ -98,21 +105,21 @@
           </div>
 
         </div>
-          <button type="submit" class="btn btn-success btn_save" id="guardarP">Guardar</button>
+        <button type="submit" class="btn btn-success btn_save" id="guardarP">Guardar</button>
       </div>
     </div>
   </form>
 </div>
-<div id="tablaPrestamo">
-<?php include("../Movimiento/tabla_movimiento.php");?>
-</div>
-<div class="reporte-hidden">
-  <?php include("../Movimiento/reporte.php") ?>
-</div>
+
+
+<div id="tablaPrestamo"></div>
+
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('#guardarP').click(function() {
+  $(document).ready(function(){
+    $('#tablaPrestamo').load('tabla_movimiento.php');
+
+    $('#guardarP').click(function(){
       id = $('#prestamo_id').val();
       estado = $('#prestamo_estado').val();
       fechaSalida = $('#prestamo_fs').val();
@@ -126,6 +133,4 @@
     });
   });
 </script>
-
-
 <?php include("../Componentes/footer.php");?>

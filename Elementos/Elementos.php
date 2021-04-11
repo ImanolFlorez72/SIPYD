@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../Componentes/header.php");
 include('../Componentes/menuA.php');
 include("../Modelo/Estado_Elemento.php");
@@ -6,6 +7,10 @@ include("../Modelo/Tipo_Elemento.php");
 require_once("../Controlador/Conexion.php");
 $estadolementos = new EstadoElemento();
 $tipoelemento = new TipoElemento();
+
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 
 ?>
 
@@ -77,8 +82,17 @@ $tipoelemento = new TipoElemento();
 <div class="container">
     <div id="tabla"></div>
 </div>
+
 <?php include_once('edit_delete_register.php'); ?>
 <?php include('../Componentes/footer.php');?>
+=======
+<?php
+}
+?>
+<?php
+include_once('edit_delete_register.php');
+?>
+
 
 <script type="text/javascript">
     $(document).ready(function() {

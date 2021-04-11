@@ -1,6 +1,11 @@
 <?php
+session_start();
 include('../Componentes/header.php');
 include('../Componentes/menuA.php');
+
+if (!isset($usuario)) {
+    header("location: ../Vistas/Login.php");
+}else{
 ?>
 
 
@@ -27,9 +32,11 @@ include('../Componentes/menuA.php');
 </div>
 <br>
 <div id="tablaTe"></div>
-<?php include("edit_delete.php"); ?>
-<?php include('../Componentes/footer.php');?>
 
+<?php 
+}
+include("edit_delete.php");
+?>
 <script type="text/javascript">
   $('#tablaTe').load('tablaTe.php');
 
@@ -37,7 +44,6 @@ include('../Componentes/menuA.php');
     idTe = $('#idTe').val();
     descripcionTe = $('#descripcionTe').val();
     agregarTe(idTe, descripcionTe);
-    cleanTe();
 
   });
   $('#actualizarTE').click(function() {
