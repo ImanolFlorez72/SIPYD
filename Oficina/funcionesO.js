@@ -1,3 +1,9 @@
+function cleanOfi() {
+    $('#nombreoficina').val('');
+    $('#codigooficina').val('');
+    
+}
+
 function agregarO(nombre,codigo){
     let cadena = "nombre=" + nombre + "&codigo=" + codigo;
                 
@@ -6,7 +12,6 @@ function agregarO(nombre,codigo){
         url: 'agregarO.php',
         data: cadena,
         success: function() {
-            
             alertify.success("Agregado con exito");
             $('#tablaOficina').load('tablaOficina.php'); 
             

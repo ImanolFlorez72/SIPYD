@@ -54,15 +54,20 @@ function actualizaF(oficionaF, cuentaF) {
                 '&mail=' + mail +
                 '&oficina=' + oficina +
                 '&cuenta=' + identificacion;
-                alert(cadena);
+                // alert(cadena);
 
     $.ajax({
         type: 'POST',
         url: 'actualizaF.php',
         data: cadena,
         success: function(r) {
-            alertify.success("Actualizado con exito");
-            $('#tablaFuncionario').load('tablaFunc.php');
+            if (r==1) {
+                alertify.success("Actualizado con exito");
+                $('#tablaFuncionario').load('tablaFunc.php');
+            } else {
+                alertify.error("Surgio un error!");
+            }
+        
         }
     });
  

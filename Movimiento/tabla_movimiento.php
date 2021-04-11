@@ -1,90 +1,101 @@
 <?php
-    require_once("../Controlador/conexion.php");
-    $conx = new Conexion();
+  require_once("../Controlador/conexion.php");
+  $conx = new Conexion();
 ?>
+
 <div class="container">
   <div class="table-responsive">
-  <table id="example" class="table table-bordered table-dark" style="width:100%">
-    <thead>
-      <tr>
-        <th scope="col">Código </th>
-        <th scope="col">Fecha/Salida</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Tipo/Movimiento</th>
-        <th scope="col">Fecha/Entrega</th>
-        <th scope="col">F/Autoriza</th>
-        <th scope="col">F/Entrega</th>
-        <th scope="col">F/Recibe</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Eliminar</th>
+    <table id="example" class="table table-bordered table-dark" style="width:100%">
+      <thead>
+        <tr>
+          <th scope="col">Código </th>
+          <th scope="col">Fecha/Salida</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Tipo/Movimiento</th>
+          <th scope="col">Fecha/Entrega</th>
+          <th scope="col">F/Autoriza</th>
+          <th scope="col">F/Entrega</th>
+          <th scope="col">F/Recibe</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Reporte</th>
+          <th scope="col">Eliminar</th>
 
-      </tr>
-    </thead>
+        </tr>
+      </thead>
 
-    <?php
-    $conx = $conx->Conectar();
-    $sql = "SELECT m.`m_cod`, m.`m_fecha_salida`, m.`m_estado`, tm.`tm_movimiento`, m.`m_fecha_estipulada` 
+      <?php
+      $conx = $conx->Conectar();
+      $sql = "SELECT m.`m_cod`, m.`m_fecha_salida`, m.`m_estado`, tm.`tm_movimiento`, m.`m_fecha_estipulada` 
             FROM movimiento AS m, tipo_movimiento AS tm WHERE m.`tm_cod` = tm.`tm_cod`";
-    
-    $sqlFa = "SELECT f.`f_nombre` FROM movimiento AS m, funcionario AS f WHERE m.`m_autoriza` = f.`f_cood`";
-    $re = mysqli_query($conx, $sqlFa);
 
-    $sqlFe = "SELECT f.`f_nombre` FROM movimiento AS m, funcionario AS f WHERE m.`m_entrega` = f.`f_cood` ORDER BY f.`f_nombre` DESC";
-    $re2 = mysqli_query($conx, $sqlFe);
-    
-    $sqlFr = "SELECT f.`f_nombre` FROM movimiento AS m, funcionario AS f WHERE m.`m_recibe` = f.`f_cood` ORDER BY f.`f_nombre` ASC";
-    $re3 = mysqli_query($conx, $sqlFr);
+      $sqlFa = "SELECT f.`f_nombre` FROM movimiento AS m, funcionario AS f WHERE m.`m_autoriza` = f.`f_cood` ORDER BY f.`f_nombre` DESC";
+      $re = mysqli_query($conx, $sqlFa);
 
-    $r1 = mysqli_query($conx,$sql);
-    while($ver1 = mysqli_fetch_row($r1)){
-    ?>
-    <tr>
-      <td><?php echo $ver1[0];?></td>
-      <td><?php echo $ver1[1];?></td>
-      <td><?php echo $ver1[2];?></td>
-      <td><?php echo $ver1[3];?></td>
-      <td><?php echo $ver1[4];?></td>
+      $sqlFe = "SELECT f.`f_nombre` FROM movimiento AS m, funcionario AS f WHERE m.`m_entrega` = f.`f_cood` ORDER BY f.`f_nombre` DESC";
+      $re2 = mysqli_query($conx, $sqlFe);
 
-      <?php while($ver2 = mysqli_fetch_row($re)){?> 
-      <td><?php echo $ver2[0];?></td>
-      <?php break; }?>
+      $sqlFr = "SELECT f.`f_nombre` FROM movimiento AS m, funcionario AS f WHERE m.`m_recibe` = f.`f_cood` ORDER BY f.`f_nombre` ASC";
+      $re3 = mysqli_query($conx, $sqlFr);
 
-      <?php while($ver3 = mysqli_fetch_row($re2)){?>
-      <td><?php echo $ver3[0];?></td>
-      <?php break; }?>
-      
-      <?php while($ver4 = mysqli_fetch_row($re3)){?>
-      <td><?php echo $ver4[0];?></td>
-      <?php break; }?>
+      $r1 = mysqli_query($conx, $sql);
+      while ($ver1 = mysqli_fetch_row($r1)) {
+        $datosP = $ver1[0]."||". 
+                  $ver1[1]."||".
+                  $ver1[2]."||".
+                  $ver1[3]."||".
+                  $ver1[4];
+      ?>
+        <tr>
+          <td><?php echo $ver1[0]; ?></td>
+          <td><?php echo $ver1[1]; ?></td>
+          <td><?php echo $ver1[2]; ?></td>
+          <td><?php echo $ver1[3]; ?></td>
+          <td><?php echo $ver1[4]; ?></td>
 
 
-      <td><button type="button" class="btn btn-success">Editar</button></td>
-      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-    <?php }?>
-    </tr>
-    </tbody>
-  </table>
+          <?php while ($ver2 = mysqli_fetch_row($re)) { ?>
+            <td><?php echo $ver2[0]; ?></td>
+          <?php break;
+          } ?>
+
+          <?php while ($ver3 = mysqli_fetch_row($re2)) { ?>
+            <td><?php echo $ver3[0]; ?></td>
+          <?php break;
+          } ?>
+
+          <?php while ($ver4 = mysqli_fetch_row($re3)) { ?>
+            <td><?php echo $ver4[0]; ?></td>
+          <?php break;
+          } ?>
+          <td><button type="button" class="btn btn-primary"><i class="far fa-edit"></i></button></td>
+          <td><button type="button" class="btn btn-info btnGenerarReporte" onclick="DatosReporte('<?php echo $datosP ?>')"><i class="far fa-file-pdf"></i></button></td>
+          <td><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+        <?php } ?>
+        </tr>
+        </tbody>
+    </table>
+  </div>
 </div>
-</div>
+
 <script type="text/javascript">
-    $(document).ready(function() {    
+  $(document).ready(function() {
     $('#example').DataTable({
-    //para cambiar el lenguaje a español
-        "language": {
-                "lengthMenu": "Mostrar _MENU_ registros",
-                "zeroRecords": "No se encontraron resultados",
-                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
-                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "sSearch": "Buscar:",
-                "oPaginate": {
-                    "sFirst": "Primero",
-                    "sLast":"Último",
-                    "sNext":"Siguiente",
-                    "sPrevious": "Anterior"
-                 },
-                 "sProcessing":"Procesando...",
-            }
-    });     
-});
+      //para cambiar el lenguaje a español
+      "language": {
+        "lengthMenu": "Mostrar _MENU_ registros",
+        "zeroRecords": "No se encontraron resultados",
+        "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+        "sSearch": "Buscar:",
+        "oPaginate": {
+          "sFirst": "Primero",
+          "sLast": "Último",
+          "sNext": "Siguiente",
+          "sPrevious": "Anterior"
+        },
+        "sProcessing": "Procesando...",
+      }
+    });
+  });
 </script>

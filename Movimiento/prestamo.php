@@ -133,3 +133,4 @@ if (!isset($usuario)) {
     });
   });
 </script>
+<?php include("../Componentes/footer.php");?>

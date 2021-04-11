@@ -8,8 +8,6 @@ function registrarM(id, estado, fechaSalida, fechaEntrada, funAutoriza, funEntre
                 '&funRecibe=' + funRecibe + 
                 'tipoM=' + tipoM;
 
-
-
         $.ajax({
         type:'POST',
         url: 'agregarMt.php',
@@ -18,4 +16,10 @@ function registrarM(id, estado, fechaSalida, fechaEntrada, funAutoriza, funEntre
             $('#tablaPrestamo').load('tabla_movimiento.php');
         }
     });
+}
+
+function DatosReporte(datosP) {
+    let d = datosP.split("||");
+    $('#numeroActa').html(d[0]);
+    $('#fechEntradaSalida').html(d[1]);
 }
